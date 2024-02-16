@@ -37,8 +37,8 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            scp ./docker-compose.yml $EC2_USER@$EC2_HOST:/home/ubuntu/docker-compose.yml
-            ssh $EC2_USER@$EC2_HOST << EOF
+            scp ./docker-compose.yml ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/home/ubuntu/docker-compose.yml
+            ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << EOF
               cd /home/ubuntu
               docker-compose pull  # Pull the latest images
               docker-compose down  # Optional: Stop existing containers
