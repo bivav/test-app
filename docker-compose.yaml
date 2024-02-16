@@ -9,8 +9,7 @@
 # https://github.com/docker/awesome-compose
 services:
   server:
-    build:
-      context: .
+    image: bivavsatyal/test:0.8
     ports:
       - 8000:8000
 
